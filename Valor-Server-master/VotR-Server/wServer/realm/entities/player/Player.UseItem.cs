@@ -1833,7 +1833,7 @@ namespace wServer.realm.entities
         }
         private void AEDecoy(RealmTime time, Item item, Position target, ActivateEffect eff)
         {
-            var decoy = new Decoy(this, eff.DurationMS, 4);
+            var decoy = new Decoy(this, eff.DurationMS, 4, eff.Explode, eff.NumShots, item);
             decoy.Move(X, Y);
             Owner.EnterWorld(decoy);
         }
