@@ -462,6 +462,8 @@ namespace common.resources
         public string[] RandVals { get; }
         public string CurrencyType { get; }
         public ushort ObjType { get; }
+        public bool Explode { get; }
+        public int NumShots { get; }
 
         public ActivateEffect(XElement elem)
         {
@@ -581,6 +583,12 @@ namespace common.resources
 
             if (elem.Attribute("objType") != null)
                 ObjType = ushort.Parse(elem.Attribute("objType").Value.Substring(2), NumberStyles.AllowHexSpecifier);
+
+            if (elem.Attribute("explode") != null)
+                Explode = elem.Attribute("explode").Value.Equals("true");
+
+            if (elem.Attribute("numShots") != null)
+                NumShots = int.Parse(elem.Attribute("numShots").Value);
         }
     }
     public class Setpiece
