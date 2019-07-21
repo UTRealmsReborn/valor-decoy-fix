@@ -154,10 +154,9 @@ namespace wServer.realm.entities
         {
             if (Vulnerable)
             {
-                if (Dying) {
-                    if (!(this is Decoy))
-                        HP -= time.ElapsedMsDelta;
-                    }
+                if (Dying)
+                    HP -= time.ElapsedMsDelta;
+
                 CheckHP();
             }
 

@@ -644,8 +644,7 @@ namespace wServer.realm.worlds
                     foreach (var i in EnemiesCollision.GetActiveChunks(PlayersCollision))
                         i.Tick(time);
                     foreach (var i in StaticObjects.Where(x => x.Value is Decoy))
-                        if (i.Value.Owner != null)
-                            i.Value.Tick(time);
+                        i.Value.Tick(time);
                 } else {
                     foreach (var i in Enemies)
                         i.Value.Tick(time);
