@@ -68,12 +68,12 @@ namespace wServer.realm.entities
                 IsJoinedWorld = true;
                 JoinedWorld = time.TotalElapsedMs;
             } else {
-                if (duration > time.TotalElapsedMs - JoinedWorld) {
+                if (duration - 2000 > time.TotalElapsedMs - JoinedWorld) {
                     this.ValidateAndMove(
                         X + direction.X * speed * time.ElapsedMsDelta / 1000,
                         Y + direction.Y * speed * time.ElapsedMsDelta / 1000
                     );
-                } else {
+                } else if (duration < time.TotalElapsedMs - JoinedWorld) {
                     if (explode) {
                         Projectile[] prjs = new Projectile[numShots];
                         ProjectileDesc prjDesc = item.Projectiles[0];
